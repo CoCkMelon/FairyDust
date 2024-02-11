@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbdwgbe3aq8f7"]
+
+[ext_resource type="PackedScene" uid="uid://h8wht7o83fhq" path="res://assets/Models/Wolf 3D/wolf_3d.tscn" id="1_tyu2j"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xgd2j"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Environment" id="Environment_v6iuj"]
+ambient_light_source = 3
+ambient_light_color = Color(0.568627, 0.568627, 0.568627, 1)
+reflected_light_source = 1
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_vfqvp"]
+
+[node name="Chara3dto2d" type="Node2D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+gui_disable_input = true
+positional_shadow_atlas_size = 0
+positional_shadow_atlas_quad_0 = 0
+positional_shadow_atlas_quad_1 = 0
+positional_shadow_atlas_quad_2 = 0
+positional_shadow_atlas_quad_3 = 0
+size = Vector2i(1024, 1024)
+render_target_clear_mode = 2
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0.999576, 0)
+keep_aspect = 0
+projection = 1
+size = 2.0
+far = 40.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = SubResource("ViewportTexture_xgd2j")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v6iuj")
+camera_attributes = SubResource("CameraAttributesPhysical_vfqvp")
+
+[node name="Wolf3d" parent="." instance=ExtResource("1_tyu2j")]

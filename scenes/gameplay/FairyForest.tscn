@@ -1,0 +1,110 @@
+[gd_scene load_steps=14 format=3 uid="uid://qswxndg4nt6s"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/cube player.gd" id="1_lhqt6"]
+[ext_resource type="PackedScene" uid="uid://8sl5gmdd6o6w" path="res://scenes/movable/camera/camera_3d.tscn" id="2_6qxmk"]
+[ext_resource type="Environment" uid="uid://6ahnlowic77u" path="res://scenes/gameplay/FairyForest/FairyForest World Environment.tres" id="2_6rwm5"]
+[ext_resource type="Script" path="res://scenes/gameplay/Cube Character.gd" id="4_f1omw"]
+[ext_resource type="PackedScene" uid="uid://digny4e8yahy1" path="res://assets/Models/untitled_uncompressed.glb" id="4_g8h2t"]
+[ext_resource type="Script" path="res://scenes/gameplay/snake_mapgen.gd" id="6_odqxa"]
+[ext_resource type="PackedScene" uid="uid://bbqv6edmbu5e6" path="res://assets/Environments/Forest/wooden_log_marshmallow_caramel_model_obj/wood_log.tscn" id="7_k4r8t"]
+[ext_resource type="SpriteFrames" uid="uid://dpohrm8ocl8lb" path="res://assets/Items/Collectables/shining egg spritesheer frames.tres" id="8_lfrhi"]
+[ext_resource type="Script" path="res://scenes/gameplay/AnimatedSprite3D.gd" id="9_ku6fd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5se4"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wevqk"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ykdav"]
+size = Vector3(0.1, 0.2, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o4qrx"]
+size = Vector3(0.1, 0.2, 0.1)
+
+[node name="Fairy Forest" type="Node3D"]
+
+[node name="cube player" type="Node3D" parent="."]
+visible = false
+script = ExtResource("1_lhqt6")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="cube player"]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+
+[node name="cube platform" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19946, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cube platform"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cube platform/StaticBody3D"]
+shape = SubResource("BoxShape3D_n5se4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cube platform"]
+mesh = SubResource("BoxMesh_wevqk")
+
+[node name="cube platform2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.446, 0.500833, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cube platform2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cube platform2/StaticBody3D"]
+shape = SubResource("BoxShape3D_n5se4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cube platform2"]
+mesh = SubResource("BoxMesh_wevqk")
+
+[node name="cube platform3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50722, 3.63306, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cube platform3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cube platform3/StaticBody3D"]
+shape = SubResource("BoxShape3D_n5se4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cube platform3"]
+mesh = SubResource("BoxMesh_wevqk")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_6rwm5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.683013, -0.258819, -0.683013, 0.707107, -3.09086e-08, 0.707107, -0.183013, -0.965926, 0.183013, 0, 0, 0)
+light_energy = 3.0
+
+[node name="untitled_uncompressed" parent="." instance=ExtResource("4_g8h2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08163, 0, -3.19144)
+
+[node name="Player Camera" parent="." instance=ExtResource("2_6qxmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.158)
+environment = ExtResource("2_6rwm5")
+
+[node name="Cube Character" type="CharacterBody3D" parent="."]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+script = ExtResource("4_f1omw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube Character"]
+shape = SubResource("BoxShape3D_ykdav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube Character"]
+mesh = SubResource("BoxMesh_o4qrx")
+skeleton = NodePath("../../cube player")
+
+[node name="mapgen" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.357, -29.135, 0)
+script = ExtResource("6_odqxa")
+
+[node name="wood log" parent="." instance=ExtResource("7_k4r8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.783, 0, 0)
+
+[node name="BG" type="Sprite3D" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8052, 2.84311, 0)
+pixel_size = 0.001
+sprite_frames = ExtResource("8_lfrhi")
+animation = &"idle"
+script = ExtResource("9_ku6fd")

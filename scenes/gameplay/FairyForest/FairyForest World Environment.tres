@@ -1,0 +1,14 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://6ahnlowic77u"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_r5pqs"]
+rayleigh_coefficient = 1.0
+energy_multiplier = 4.17
+
+[sub_resource type="Sky" id="Sky_eopss"]
+sky_material = SubResource("PhysicalSkyMaterial_r5pqs")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_eopss")
+ambient_light_source = 3
+ambient_light_color = Color(0.439216, 0.439216, 0.439216, 1)
