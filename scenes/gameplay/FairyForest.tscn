@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://qswxndg4nt6s"]
+[gd_scene load_steps=15 format=3 uid="uid://qswxndg4nt6s"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/cube player.gd" id="1_lhqt6"]
 [ext_resource type="PackedScene" uid="uid://8sl5gmdd6o6w" path="res://scenes/movable/camera/camera_3d.tscn" id="2_6qxmk"]
 [ext_resource type="Environment" uid="uid://6ahnlowic77u" path="res://scenes/gameplay/FairyForest/FairyForest World Environment.tres" id="2_6rwm5"]
 [ext_resource type="Script" path="res://scenes/gameplay/Cube Character.gd" id="4_f1omw"]
 [ext_resource type="PackedScene" uid="uid://digny4e8yahy1" path="res://assets/Models/untitled_uncompressed.glb" id="4_g8h2t"]
+[ext_resource type="Script" path="res://scenes/gameplay/Gun.gd" id="6_emr6k"]
 [ext_resource type="Script" path="res://scenes/gameplay/snake_mapgen.gd" id="6_odqxa"]
 [ext_resource type="PackedScene" uid="uid://bbqv6edmbu5e6" path="res://assets/Environments/Forest/wooden_log_marshmallow_caramel_model_obj/wood_log.tscn" id="7_k4r8t"]
 [ext_resource type="SpriteFrames" uid="uid://dpohrm8ocl8lb" path="res://assets/Items/Collectables/shining egg spritesheer frames.tres" id="8_lfrhi"]
@@ -22,16 +22,9 @@ size = Vector3(0.1, 0.2, 0.1)
 [sub_resource type="BoxMesh" id="BoxMesh_o4qrx"]
 size = Vector3(0.1, 0.2, 0.1)
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_i2t51"]
+
 [node name="Fairy Forest" type="Node3D"]
-
-[node name="cube player" type="Node3D" parent="."]
-visible = false
-script = ExtResource("1_lhqt6")
-
-[node name="RigidBody3D" type="RigidBody3D" parent="cube player"]
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
 
 [node name="cube platform" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19946, 0)
@@ -76,23 +69,6 @@ light_energy = 3.0
 [node name="untitled_uncompressed" parent="." instance=ExtResource("4_g8h2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08163, 0, -3.19144)
 
-[node name="Player Camera" parent="." instance=ExtResource("2_6qxmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.158)
-environment = ExtResource("2_6rwm5")
-
-[node name="Cube Character" type="CharacterBody3D" parent="."]
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-script = ExtResource("4_f1omw")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube Character"]
-shape = SubResource("BoxShape3D_ykdav")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube Character"]
-mesh = SubResource("BoxMesh_o4qrx")
-skeleton = NodePath("../../cube player")
-
 [node name="mapgen" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.357, -29.135, 0)
 script = ExtResource("6_odqxa")
@@ -108,3 +84,31 @@ pixel_size = 0.001
 sprite_frames = ExtResource("8_lfrhi")
 animation = &"idle"
 script = ExtResource("9_ku6fd")
+
+[node name="Player stuff" type="Node" parent="."]
+
+[node name="Player Camera" parent="Player stuff" instance=ExtResource("2_6qxmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.158)
+environment = ExtResource("2_6rwm5")
+
+[node name="Cube Character" type="CharacterBody3D" parent="Player stuff"]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+script = ExtResource("4_f1omw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player stuff/Cube Character"]
+shape = SubResource("BoxShape3D_ykdav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player stuff/Cube Character"]
+mesh = SubResource("BoxMesh_o4qrx")
+skeleton = NodePath("")
+
+[node name="Gun" type="Node3D" parent="Player stuff/Cube Character"]
+script = ExtResource("6_emr6k")
+
+[node name="Infinte Plane" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.06102, 0)
+
+[node name="Infinite Plane Collider" type="CollisionShape3D" parent="Infinte Plane"]
+shape = SubResource("WorldBoundaryShape3D_i2t51")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8qqientqa2g8"]
+
+[ext_resource type="Shader" uid="uid://dnc0670yss8t" path="res://scenes/movable/spatial sphere shining projectile.tres" id="1_2q2we"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ia0t7"]
+spread = 0.0
+radial_velocity_min = -10.0
+radial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -5.0
+radial_accel_max = 5.0
+attractor_interaction_enabled = false
+scale_min = 0.0
+turbulence_enabled = true
+turbulence_noise_scale = 20.0
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_880wa"]
+render_priority = 0
+shader = ExtResource("1_2q2we")
+
+[sub_resource type="SphereMesh" id="SphereMesh_rgp7o"]
+material = SubResource("ShaderMaterial_880wa")
+radius = 0.05
+height = 0.1
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bhfts"]
+
+[node name="ShiningProjectile" type="RigidBody3D" groups=["bullet"]]
+collision_layer = 2
+gravity_scale = 0.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+gi_mode = 0
+amount = 100
+explosiveness = 0.08
+fixed_fps = 0
+interpolate = false
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_ia0t7")
+draw_pass_1 = SubResource("SphereMesh_rgp7o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bhfts")
