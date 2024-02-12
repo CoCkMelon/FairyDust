@@ -13,7 +13,7 @@ func _ready():
 
 func _on_PlayButton_pressed() -> void:
 	var params = {
-		"show_progress_bar": true,
+		"show_progress_bar": false,
 		"a_number": 10,
 		"a_string": "Ciao!",
 		"an_array": [1, 2, 3, 4],
@@ -22,8 +22,8 @@ func _on_PlayButton_pressed() -> void:
 			"val": 15
 		},
 	}
-	Game.change_scene_to_file("res://scenes/gameplay/gameplay.tscn", params)
-
+	#Game.change_scene_to_file("res://scenes/gameplay/gameplay.tscn", params)
+	Game.change_scene_to_file("res://scenes/gameplay/FairyForest.tscn", params)
 
 func _on_ExitButton_pressed() -> void:
 	# gently shutdown the game

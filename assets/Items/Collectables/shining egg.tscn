@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0wp30eni4bee"]
+
+[ext_resource type="Shader" path="res://Assets/Items/Collectables/shining egg.gdshader" id="1_0c5kf"]
+[ext_resource type="Script" path="res://Assets/Items/Collectables/shining egg pickup.gd" id="1_1tnbj"]
+[ext_resource type="Texture2D" uid="uid://cepphgy8ojru6" path="res://Assets/Items/Collectables/Shining_egg/shining egg.webp" id="2_bql2u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lriyf"]
+radius = 150.8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7q58"]
+shader = ExtResource("1_0c5kf")
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_1tnbj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["shining_egg"]]
+position = Vector2(0, -20)
+shape = SubResource("CircleShape2D_lriyf")
+
+[node name="ShiningEgg" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_j7q58")
+texture = ExtResource("2_bql2u")

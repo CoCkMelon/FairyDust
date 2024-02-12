@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqkfhwatu2v33"]
+
+[ext_resource type="Texture2D" uid="uid://de2x14ooq4jk0" path="res://assets/Environments/Forest/Platforms/final (76).webp" id="1_53bjf"]
+[ext_resource type="PackedScene" uid="uid://cum15m0xp41bo" path="res://assets/Items/Collectables/shining egg spritesheer.tscn" id="2_kdec3"]
+[ext_resource type="PackedScene" uid="uid://dbdwgbe3aq8f7" path="res://scenes/movable/Chara3dto2d.tscn" id="3_6yoq8"]
+
+[node name="FairyLevel" type="Node2D"]
+
+[node name="Final(76)" type="Sprite2D" parent="."]
+position = Vector2(79, 162)
+texture = ExtResource("1_53bjf")
+
+[node name="shining egg spritesheer" parent="." instance=ExtResource("2_kdec3")]
+position = Vector2(1351, -191)
+
+[node name="Chara3dto2d" parent="." instance=ExtResource("3_6yoq8")]
+position = Vector2(135, -560)
+
+[node name="Camera2D" type="Camera2D" parent="Chara3dto2d"]
+zoom = Vector2(0.2, 0.2)

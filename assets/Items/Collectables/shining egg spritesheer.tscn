@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cum15m0xp41bo"]
+
+[ext_resource type="Script" path="res://assets/Items/Collectables/shining egg pickup.gd" id="1_14jwe"]
+[ext_resource type="SpriteFrames" uid="uid://dpohrm8ocl8lb" path="res://assets/Items/Collectables/shining egg spritesheer frames.tres" id="2_4653o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_buhpj"]
+radius = 150.8
+
+[node name="shining egg spritesheer" type="Area2D"]
+script = ExtResource("1_14jwe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_4653o")
+animation = &"idle"
+autoplay = "idle"
+frame = 29
+frame_progress = 0.0692183
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["shining_egg"]]
+position = Vector2(0, -20)
+shape = SubResource("CircleShape2D_buhpj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
