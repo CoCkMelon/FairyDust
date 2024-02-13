@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://qswxndg4nt6s"]
+[gd_scene load_steps=18 format=3 uid="uid://qswxndg4nt6s"]
 
 [ext_resource type="PackedScene" uid="uid://8sl5gmdd6o6w" path="res://scenes/movable/camera/camera_3d.tscn" id="2_6qxmk"]
 [ext_resource type="Environment" uid="uid://6ahnlowic77u" path="res://scenes/gameplay/FairyForest/FairyForest World Environment.tres" id="2_6rwm5"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bbqv6edmbu5e6" path="res://assets/Environments/Forest/wooden_log_marshmallow_caramel_model_obj/wood_log.tscn" id="7_k4r8t"]
 [ext_resource type="SpriteFrames" uid="uid://dpohrm8ocl8lb" path="res://assets/Items/Collectables/shining egg spritesheer frames.tres" id="8_lfrhi"]
 [ext_resource type="Script" path="res://scenes/gameplay/AnimatedSprite3D.gd" id="9_ku6fd"]
+[ext_resource type="PackedScene" uid="uid://dmbyoce0w1q7s" path="res://scenes/movable/enemies/scary_nightmare.tscn" id="10_4qp45"]
+[ext_resource type="Script" path="res://scenes/gameplay/Mob Spawner.gd" id="11_ewchn"]
+[ext_resource type="Script" path="res://scenes/gameplay/DamageSystem.gd" id="11_ok4o8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5se4"]
 size = Vector3(10, 1, 1)
@@ -69,8 +72,8 @@ light_energy = 3.0
 [node name="untitled_uncompressed" parent="." instance=ExtResource("4_g8h2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08163, 0, -3.19144)
 
-[node name="mapgen" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.357, -29.135, 0)
+[node name="snake mapgen" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2655, 12.7502, 0)
 script = ExtResource("6_odqxa")
 
 [node name="wood log" parent="." instance=ExtResource("7_k4r8t")]
@@ -112,3 +115,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.06102, 0)
 
 [node name="Infinite Plane Collider" type="CollisionShape3D" parent="Infinte Plane"]
 shape = SubResource("WorldBoundaryShape3D_i2t51")
+
+[node name="Mobs" type="Node" parent="."]
+
+[node name="ScaryNightmare" parent="Mobs" instance=ExtResource("10_4qp45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31734, 0, 0)
+
+[node name="Mob Spawner" type="Node3D" parent="Mobs"]
+script = ExtResource("11_ewchn")
+
+[node name="DamageSystem" type="Node" parent="."]
+script = ExtResource("11_ok4o8")

@@ -70,6 +70,8 @@ func update_bullets(delta):
 		# Compare the time difference to bullet lifetime
 		if game_time - bullet_entry["creation_time"] > bullet_lifetime:
 			var bullet = bullet_entry["bullet"]
+			if !bullet:
+				continue
 
 			# Manually free all of the bullet's children
 			for child in bullet.get_children():

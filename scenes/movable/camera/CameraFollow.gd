@@ -1,15 +1,15 @@
 extends Camera3D
 
 
-@export var target_distance = 5
-@export var target_height = 2
-@export var speed:=20.0
+@export var target_distance = 0
+@export var target_height = 0
+@export var speed: = 20.0
 var follow_this = null
 var last_lookat
 
 # Spring arm parameters
-var arm_length : float = 5.0
-var springiness : float = 0.2
+var arm_length : float = 0.01
+var springiness : float = 0.3
 
 func _ready():
 	#follow_this = get_parent()
