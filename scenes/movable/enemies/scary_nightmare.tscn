@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://scenes/movable/enemies/scary_nightmare.gd" id="1_j3exp"]
 [ext_resource type="Texture2D" uid="uid://dcy1retjogjic" path="res://assets/Models/DarkYellowMonster/6f6b42fc1090_15362a415eed_Dark_face_smoke_hor_rgb.jpg" id="2_1x1yp"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_sccdp"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_ivgqc"]
+margin = 1.0
+radius = 0.433977
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dslft"]
 resource_name = "base_material"
@@ -54,7 +56,8 @@ collision_mask = 3
 script = ExtResource("1_j3exp")
 
 [node name="Monster Collision sphere" type="CollisionShape3D" parent="." groups=["enemy"]]
-shape = SubResource("SphereShape3D_sccdp")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170223, 0, 0)
+shape = SubResource("SphereShape3D_ivgqc")
 
 [node name="Dark_face_smoke_horror" type="MeshInstance3D" parent="." groups=["enemy"]]
 transform = Transform3D(1.85833, 0, 0, 0, -8.12301e-08, -1.85833, 0, 1.85833, -8.12301e-08, 0, 0, 0)

@@ -29,6 +29,7 @@ radial_segments = 8
 rings = 4
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bhfts"]
+radius = 0.05
 
 [node name="ShiningProjectile" type="RigidBody3D" groups=["bullet"]]
 collision_layer = 2

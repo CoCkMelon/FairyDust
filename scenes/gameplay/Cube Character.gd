@@ -12,8 +12,11 @@ var dash_time = 0.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var downlerp = 0
-const sidespeed = 3
+const sidespeed = 10
 const sidedistance = 2
+
+func _ready():
+	PlayerStats.reset_health()
 
 func _physics_process(delta):
 	# Add the gravity.

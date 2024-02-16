@@ -1,10 +1,13 @@
 extends Node3D
 
-var mob_scene : PackedScene = preload("res://scenes/movable/enemies/scary_nightmare.tscn")
-var spawn_interval : float = 3.0  # Time between bursts
-var burst_size : int = 5  # Number of enemies in each burst
-var spawn_radius : float = 10.0  # Distance from player to spawn enemies
+@export var mob_scene : PackedScene = preload("res://scenes/movable/enemies/scary_nightmare.tscn")
 
+@export var spawn_interval : float = 3.0 # Time between bursts
+@export var burst_size : int = 5  # Number of enemies in each burst
+@export var spawn_radius : float = 10.0  # Distance from player to spawn enemies
+@export var min_spawn_radius: float = 3
+@export var number_of_mobs: int = 400
+var spawned_cnt = 0
 @onready var player =  $"../../Player stuff/Cube Character" # Assuming you have a player script named "Player"
 
 var timer : Timer
@@ -28,7 +31,14 @@ func _on_timer_timeout():
 	timer.start()
 
 func spawn_burst():
+	if(spawned_cnt >=number_of_mobs):
+		return
 	for r in range(burst_size):
+		spawned_cnt+=1
 		var mob = mob_scene.instantiate()
-		mob.position = Vector3(randf_range(-spawn_radius, spawn_radius), randf_range(-spawn_radius, spawn_radius), 0)
+		while true:
+			mob.position = Vector3(randf_range(-spawn_radius, spawn_radius), randf_range(-spawn_radius, spawn_radius), 0)
+			if mob.position.distance_to(player.position) > min_spawn_radius:
+				break
+		
 		add_sibling(mob)

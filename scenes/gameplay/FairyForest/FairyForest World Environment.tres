@@ -12,3 +12,5 @@ background_mode = 2
 sky = SubResource("Sky_eopss")
 ambient_light_source = 3
 ambient_light_color = Color(0.439216, 0.439216, 0.439216, 1)
+volumetric_fog_density = 0.8294
+adjustment_brightness = 3.47

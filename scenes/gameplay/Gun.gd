@@ -14,12 +14,15 @@ var game_time : float = 0.0
 # Array to store active bullets
 var bullets : Array = []
 
+func _ready():
+	pass
+
 func _process(delta):
 	game_time += delta
 	time_since_last_shot += delta
 	update_bullets(delta)  # Adding this for tracking individual bullet lifetimes
 	# Check for input to shoot
-	if Input.is_action_pressed("shoot") and time_since_last_shot > shoot_interval:
+	if Input.is_action_pressed("shoot"):
 		shoot()
 
 func shoot():
@@ -37,6 +40,13 @@ func shoot():
 	var shoot_plane_point = Plane(Vector3(0, 0, 1), Vector3(0, 0, 0)).intersects_ray(from, to)
 
 	if shoot_plane_point != Vector3():
+
+		# Calculate the direction towards the shoot plane point
+		var shoot_direction = (shoot_plane_point - global_transform.origin).normalized()
+		
+		rotate_towards(shoot_direction)
+		if time_since_last_shot <= shoot_interval:
+			return
 		# Spawn a bullet
 		var bullet = bullet_scene.instantiate()
 		$"../..".add_child(bullet)
@@ -45,9 +55,6 @@ func shoot():
 		# Set the bullet's initial position and direction
 		bullet.global_transform.origin = global_transform.origin
 		bullet.global_transform.basis.z = -global_transform.basis.z  # Shoot in the opposite direction of the player
-
-		# Calculate the direction towards the shoot plane point
-		var shoot_direction = (shoot_plane_point - global_transform.origin).normalized()
 
 		# Apply velocity to the bullet
 		bullet.apply_impulse(shoot_direction * shoot_speed, Vector3.ZERO)
@@ -84,3 +91,10 @@ func update_bullets(delta):
 	# Remove bullets outside the loop to avoid modifying array while iterating
 	for index in bullets_to_remove:
 		bullets.remove_at(index)
+
+func rotate_towards(target_rotation: Vector3):
+	rotation.z = min(2*PI, -atan2(target_rotation.x, target_rotation.y)+PI/2)
+	if rotation.z < PI/2:
+		scale.y = 1
+	else:
+		scale.y = -1
