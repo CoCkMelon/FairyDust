@@ -19,7 +19,7 @@ var damaged_indication_time = 0.1
 var despawn_distance: float = 1000
 var last_slide_coll
 
-@onready var player_target = $"../../Player stuff/Cube Character"
+@onready var player_target = $"../../Player stuff/Fairy Character"
 @onready var collisider = $"Monster Collision sphere"
 @onready var mesh = $Dark_face_smoke_horror
 @onready var material = mesh.get_active_material(0)

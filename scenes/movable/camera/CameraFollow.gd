@@ -13,7 +13,7 @@ var springiness : float = 0.3
 
 func _ready():
 	#follow_this = get_parent()
-	follow_this = $"../Cube Character"
+	follow_this = $"../Fairy Character"
 	last_lookat = follow_this.global_transform.origin
 
 func _physics_process(delta):

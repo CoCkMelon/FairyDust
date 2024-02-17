@@ -8,7 +8,7 @@ extends Node3D
 @export var min_spawn_radius: float = 3
 @export var number_of_mobs: int = 400
 var spawned_cnt = 0
-@onready var player =  $"../../Player stuff/Cube Character" # Assuming you have a player script named "Player"
+@onready var player =  $"../../Player stuff/Fairy Character" # Assuming you have a player script named "Player"
 
 var timer : Timer
 

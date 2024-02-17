@@ -17,6 +17,7 @@ const sidedistance = 2
 
 func _ready():
 	PlayerStats.reset_health()
+	PlayerStats.current_player = self
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -55,6 +56,7 @@ func _physics_process(delta):
 		downlerp = max(downlerp, 0)
 
 		position = Vector3(position.x, position.y, downlerp)
+	
 
 
 	move_and_slide()
