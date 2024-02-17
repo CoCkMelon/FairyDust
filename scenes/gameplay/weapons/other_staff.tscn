@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/gameplay/weapons/other_staff.gd" id="1_nyjjo"]
 [ext_resource type="PackedScene" uid="uid://d03ltoyv767ai" path="res://assets/Models/staffs/6f50c6a0216f_88d0c459b5e6_stone_staff_min.glb" id="2_2aktj"]
 
-[node name="Bubble gun" type="Node3D"]
+[node name="Stone staff" type="Node3D"]
 script = ExtResource("1_nyjjo")
 
-[node name="6f50c6a0216f_88d0c459b5e6_stone_staff_min" parent="." instance=ExtResource("2_2aktj")]
+[node name="stone_staff_min" parent="." instance=ExtResource("2_2aktj")]
 transform = Transform3D(0.517, 0, 0, 0, 0.517, 0, 0, 0, 0.517, 0.119713, 0, 0)

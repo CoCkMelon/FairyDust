@@ -75,7 +75,8 @@ Dash: Shift
 Side move: Space (to avoid obstacles)
 Restart: R
 Fullscreen: F
-Quit: Q"
+Quit: Q
+Mouse scroll to change weapons"
 
 [node name="Label" type="Label" parent="MarginContainer/Control"]
 layout_mode = 1

@@ -5,8 +5,8 @@ var bullet_scene : PackedScene = preload("res://scenes/movable/shining projectil
 
 # Shooting parameters
 var shoot_speed : float = 10.0
-var shoot_interval : float = 0.1  # Minimum time between shots
-var bullet_lifetime : float = 5.0
+var shoot_interval : float = 0.05  # Minimum time between shots
+var bullet_lifetime : float = 2.0
 var can_shoot = true
 var time_since_last_shot : float = 0.0
 var game_time : float = 0.0

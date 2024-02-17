@@ -12,8 +12,9 @@ var weapons: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	weapons.append(Items.bubbleWand)
+	weapons.append(Items.fantasyWand)
 	weapons.append(Items.stoneWand)
+	weapons.append(Items.bubbleWand)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

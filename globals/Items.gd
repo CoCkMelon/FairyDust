@@ -28,6 +28,7 @@ class ItemData:
 		self.scenePath = newscenePath
 
 # Define some magical items with scene paths
+var fantasyWand = ItemData.new("Fantasy wand", ItemType.WEAPON, "Wand to shoot balls.", "res://scenes/gameplay/weapons/fantasy_staff.tscn")
 var bubbleWand = ItemData.new("Wand of Bubbles", ItemType.WEAPON, "White wand that shoots infinite bubbles, that nightmares are afraid of.", "res://scenes/gameplay/weapons/bubble_gun.tscn")
 var stoneWand = ItemData.new("Stone staff", ItemType.WEAPON, "Stone staff to throw stones.", "res://scenes/gameplay/weapons/other_staff.tscn")
 #var wandOfWonder = ItemData.new("Wand of Wonder", ItemType.WEAPON, "A magical wand that sparkles with enchantment.", "res://scenes/gameplay/weapons/wand_of_wonder.tscn")

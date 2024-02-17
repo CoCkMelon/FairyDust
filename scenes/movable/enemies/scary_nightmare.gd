@@ -94,7 +94,13 @@ func handle_collision():
 	# Check if the collided object belongs to a specific group
 	if body.is_in_group("bullet"):
 		# Code to execute when a bullet (in the "bullets" group) hits the mob
-		take_damage(10.0)
+		take_damage(2.0)
+		for child in body.get_children():
+			child.queue_free()
+		body.queue_free()	
+	if body.is_in_group("fantasy_bullet"):
+		# Code to execute when a bullet (in the "bullets" group) hits the mob
+		take_damage(20.0)
 		for child in body.get_children():
 			child.queue_free()
 		body.queue_free()

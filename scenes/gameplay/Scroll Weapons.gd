@@ -6,7 +6,7 @@ var currentWeaponIndex : int = 0
 var currentWeaponInstance : Node = null
 
 func _ready():
-	currentWeaponInstance = $"../Bubble gun"
+	currentWeaponInstance = $"../Fantasy staff"
 
 func _input(event):
 	if event.is_action_released("scroll_up"):
