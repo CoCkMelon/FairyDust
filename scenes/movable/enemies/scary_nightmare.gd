@@ -117,12 +117,12 @@ func handle_collision():
 		var weighted_collision_force = collision_force * throwstone_mass
 
 		# You can use the weighted collision force in your logic, for example:
-		#print("Weighted Collision Force:", weighted_collision_force)
+		print("Weighted Collision Force:", weighted_collision_force)
 
 		take_damage(weighted_collision_force)
 
 		# Free the throwstone and its children
-		if(weighted_collision_force > 20):
+		if(weighted_collision_force > 10000):
 			for child in body.get_children():
 				child.queue_free()
 			body.queue_free()

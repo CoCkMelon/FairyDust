@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvvrgnts8pybi"]
+
+[ext_resource type="PackedScene" uid="uid://bvnjwwc5gy1c4" path="res://scenes/movable/player_stuff.tscn" id="1_1l42u"]
+[ext_resource type="ArrayMesh" uid="uid://ch5aqjt7h8g0u" path="res://assets/Models/texttt.obj" id="2_cdte7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yecah"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_civ40"]
+seamless = true
+normalize = false
+noise = SubResource("FastNoiseLite_yecah")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gsh0k"]
+sky_top_color = Color(0.0980392, 0, 0.54902, 1)
+sky_horizon_color = Color(0.47451, 0.482353, 0.494118, 1)
+sky_cover = SubResource("NoiseTexture2D_civ40")
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.34902, 0.670588, 0.631373, 1)
+sun_angle_max = 9.86
+
+[sub_resource type="Sky" id="Sky_hfal6"]
+sky_material = SubResource("ProceduralSkyMaterial_gsh0k")
+
+[sub_resource type="Environment" id="Environment_eeovp"]
+background_mode = 2
+sky = SubResource("Sky_hfal6")
+ambient_light_source = 3
+volumetric_fog_density = 0.8294
+adjustment_brightness = 3.47
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player stuff" parent="." instance=ExtResource("1_1l42u")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eeovp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.31968, -0.11757, -0.940203, 0.929683, -0.230575, -0.28727, -0.183013, -0.965926, 0.183013, 0, 0, 0)
+light_energy = 3.0
+
+[node name="Texttt" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 37.6441, -0.234947, -8.76841)
+mesh = ExtResource("2_cdte7")

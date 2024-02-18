@@ -25,19 +25,19 @@ var movementSpeed : float = 0.0
 
 func _process(delta):
 	movementSpeed = character.velocity.length()
-	# Update movement speed and Y-axis movement direction
-	var yMovementDirection : float
-	if character.dashtimer != 0:
-		yMovementDirection = 1
-	else:
-		yMovementDirection = sign(character.velocity.y)
-		if yMovementDirection < 0:
-			yMovementDirection = -10
+	
+	 #Update movement speed and Y-axis movement direction
+	var yMovementDirection : float = float(character.velocity.y > 0)
+	#if yMovementDirection < 0:
+		#yMovementDirection = -10
 	
 
 	# Calculate flapping speed based on movement speed and Y-axis movement direction
-	var flapSpeed = flapSpeedBase + movementSpeed * flapSpeedMultiplier * yMovementDirection
-	flapSpeed = max(flapSpeed, 0.1)
+	#var flapSpeed = flapSpeedBase + movementSpeed * flapSpeedMultiplier * yMovementDirection
+	#flapSpeed = max(flapSpeed, 0.1)
+	var input_dir = Input.get_vector("left", "right", "up", "down")
+	#var direction = (character.transform.basis * Vector3(input_dir.x, input_dir.y, 0)).normalized()
+	var flapSpeed = flapSpeedBase * input_dir.length() + (float(character.dashtimer/character.dash_time > character.dash_cd_part)*character.dash_speed*200) + movementSpeed * flapSpeedMultiplier * yMovementDirection
 
 	currentAngle += (flapSpeed + character.velocity.length() * flapSpeedMultiplier) * delta
 	currentAngle = wrap_angle(currentAngle)

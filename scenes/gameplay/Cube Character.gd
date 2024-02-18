@@ -10,10 +10,13 @@ var dash_time = 0.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var model = $"fairy with animations"
 
 var downlerp = 0
 const sidespeed = 10
 const sidedistance = 2
+
+@onready var initial_model_rotation = model.rotation
 
 func _ready():
 	PlayerStats.reset_health()
@@ -72,3 +75,10 @@ func take_damage(damage_amount: float):
 	print(damage_amount)
 	if PlayerStats.health <= 0:
 		print(name," is dead")
+
+func _process(delta):
+	var input_dir = Input.get_vector("left", "right", "up", "down")
+	if input_dir.x < 0:
+		model.rotation.y = initial_model_rotation.y + PI
+	elif input_dir.x > 0:
+		model.rotation.y = initial_model_rotation.y 

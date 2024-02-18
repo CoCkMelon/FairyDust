@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://m48vg05k085o"
+path.s3tc="res://.godot/imported/464c4db203d0_44c6e1ff813e_Terrifying_and_Horr_Normals.jpg-25fa12ab2b8e79ec4b4f75ae553ef8c9.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://assets/Models/bats/bat4/464c4db203d0_44c6e1ff813e_Terrifying_and_Horr_Normals.jpg"
+dest_files=["res://.godot/imported/464c4db203d0_44c6e1ff813e_Terrifying_and_Horr_Normals.jpg-25fa12ab2b8e79ec4b4f75ae553ef8c9.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/Models/bats/bat4/464c4db203d0_44c6e1ff813e_Terrifying_and_Horr_Normals.jpg"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
