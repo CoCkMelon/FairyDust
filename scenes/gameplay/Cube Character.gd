@@ -75,6 +75,7 @@ func take_damage(damage_amount: float):
 	print(damage_amount)
 	if PlayerStats.health <= 0:
 		print(name," is dead")
+		get_tree().change_scene_to_file("res://scenes/gameplay/FairyForest.tscn")
 
 func _process(delta):
 	var input_dir = Input.get_vector("left", "right", "up", "down")
