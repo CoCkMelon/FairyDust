@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bks2g8dlshyi7"
+path.s3tc="res://.godot/imported/dfd9461eeeba_8d56487d68ed_Dark_face_smoke_hor_Normals.jpg-8f46c18f203a31e2c9a97d90bba1a3ae.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://assets/Models/dfd9461eeeba_8d56487d68ed_Dark_face_smoke_hor_Normals.jpg"
+dest_files=["res://.godot/imported/dfd9461eeeba_8d56487d68ed_Dark_face_smoke_hor_Normals.jpg-8f46c18f203a31e2c9a97d90bba1a3ae.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/Models/dfd9461eeeba_8d56487d68ed_Dark_face_smoke_hor_Normals.jpg"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://btkl7wfmuwc2s"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/weapons/fantasy_staff.gd" id="1_hgru5"]
+[ext_resource type="PackedScene" uid="uid://caow5y6olye0a" path="res://assets/Models/staffs/9bf8b8b32ca7_92972a966b96_a_fantasy_staff_wit.glb" id="2_vdx2i"]
+
+[node name="Fantasy staff" type="Node3D"]
+script = ExtResource("1_hgru5")
+
+[node name="a_fantasy_staff_wit" parent="." instance=ExtResource("2_vdx2i")]
+transform = Transform3D(0.517, 0, 0, 0, 0.517, 0, 0, 0, 0.517, 0.119713, 0, 0)

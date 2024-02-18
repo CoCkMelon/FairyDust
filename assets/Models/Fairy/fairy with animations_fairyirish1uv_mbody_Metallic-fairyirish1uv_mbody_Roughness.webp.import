@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dh1t6qxre27ry"
+path.s3tc="res://.godot/imported/fairy with animations_fairyirish1uv_mbody_Metallic-fairyirish1uv_mbody_Roughness.webp-1cf5441e0d0cd7fd6514bf7f2dda1174.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://assets/Models/Fairy/fairy with animations_fairyirish1uv_mbody_Metallic-fairyirish1uv_mbody_Roughness.webp"
+dest_files=["res://.godot/imported/fairy with animations_fairyirish1uv_mbody_Metallic-fairyirish1uv_mbody_Roughness.webp-1cf5441e0d0cd7fd6514bf7f2dda1174.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

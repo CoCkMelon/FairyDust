@@ -1,18 +1,18 @@
 extends Node3D
 
 # Platform scenes to spawn
-var platform_scene : PackedScene = preload("res://assets/Environments/Forest/wooden_log_marshmallow_caramel_model_obj/wood_log.tscn")
+@export var platform_scene : PackedScene = preload("res://assets/Environments/Forest/wooden_log_marshmallow_caramel_model_obj/wood_log.tscn")
 
 # Number of platforms to spawn
-var num_platforms : int = 50
+@export var num_platforms : int = 1000
 
 # Range for the length of each platform
-var min_length : float = 2.0
-var max_length : float = 3.0
+@export var min_length : float = 2.0
+@export var max_length : float = 3.0
 
 # Range for the distance between platforms
-var min_distance : float = 1.0
-var max_distance : float = 3.0
+@export var min_distance : float = 1.0
+@export var max_distance : float = 3.0
 
 func _ready():
 	spawn_platforms()

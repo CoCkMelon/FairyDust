@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://j5n7xck5igov"
+path="res://.godot/imported/model.obj-74ec23c0d765188407d4c6fde8c041eb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/model.obj-74ec23c0d765188407d4c6fde8c041eb.mesh"]
+
+source_file="res://assets/Models/night stars mushroom purple /model.obj"
+dest_files=["res://.godot/imported/model.obj-74ec23c0d765188407d4c6fde8c041eb.mesh", "res://.godot/imported/model.obj-74ec23c0d765188407d4c6fde8c041eb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

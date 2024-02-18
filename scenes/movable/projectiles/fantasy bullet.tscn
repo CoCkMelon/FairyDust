@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0prbuovncyt4"]
+
+[ext_resource type="Shader" path="res://scenes/movable/projectiles/fantasy bullet.gdshader" id="1_8x35w"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g75k7"]
+radius = 0.04
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_55kgk"]
+noise_type = 0
+seed = 3
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nn255"]
+noise = SubResource("FastNoiseLite_55kgk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3bn7"]
+render_priority = 0
+shader = ExtResource("1_8x35w")
+shader_parameter/albedo = Color(0, 0.184314, 1, 0.431373)
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_nn255")
+shader_parameter/roughness = 0.108
+shader_parameter/normal_strength = 1.0
+shader_parameter/edge_color = Color(0.298039, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_e0nk0"]
+material = SubResource("ShaderMaterial_v3bn7")
+radius = 0.04
+height = 0.08
+radial_segments = 8
+rings = 8
+
+[node name="FantasyBullet" type="RigidBody3D" groups=["fantasy_bullet"]]
+collision_layer = 2
+input_ray_pickable = false
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["fantasy_bullet"]]
+shape = SubResource("SphereShape3D_g75k7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_e0nk0")

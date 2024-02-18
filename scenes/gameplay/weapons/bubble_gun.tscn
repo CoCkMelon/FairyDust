@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1g4k7ljvvxo5"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/Gun.gd" id="1_2qcbp"]
+[ext_resource type="PackedScene" uid="uid://cqqte58ocu2x8" path="res://assets/Models/staffs/325a362a40a3_3d7dee211b5f_model.glb" id="2_s36xd"]
+
+[node name="Bubble gun" type="Node3D"]
+script = ExtResource("1_2qcbp")
+
+[node name="325a362a40a3_3d7dee211b5f_model" parent="." instance=ExtResource("2_s36xd")]
+transform = Transform3D(0.517, 0, 0, 0, 0.517, 0, 0, 0, 0.517, 0.119713, 0, 0)

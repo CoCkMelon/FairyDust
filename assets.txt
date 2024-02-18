@@ -1,0 +1,2 @@
+Godot project template https://github.com/crystal-bit/godot-game-template
+Fern by Digital screen official https://sketchfab.com/3d-models/fern-grass-02-93d1f6a261e24b8394d0ea41cf985ef9
